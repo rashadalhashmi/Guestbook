@@ -6,7 +6,7 @@ namespace Guestbook.Data
  
     public class Context: IdentityDbContext<ApplicationUserEntity>
     {
-        public Context(DbContextOptions options) : base(options)
+        public Context(DbContextOptions options):base(options)
         {
                     
         }
