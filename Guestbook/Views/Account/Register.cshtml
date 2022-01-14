@@ -1,0 +1,35 @@
+﻿@model RegisterViewModel
+
+<div class="register row ">
+<form  class="mt-5 offset-4 col-4" asp-action="Register" asp-controller="Account" method="post">
+
+  
+
+  <div class="form-group p-1">
+    <label asp-for="FirstName">First Name</label>
+    <input asp-for="FirstName" type="text" class="form-control"  placeholder="Enter Your First Name"/>
+    <span class="form-text  text-danger" asp-validation-for="FirstName"></span>
+  </div>
+
+  <div class="form-group p-1">
+    <label asp-for="LastName" >Last Name</label>
+    <input asp-for="LastName" type="text" class="form-control"  placeholder="Enter Your Last Name" />
+    <span class="form-text  text-danger" asp-validation-for="LastName"></span>
+  </div>
+
+  <div class="form-group p-1">
+    <label asp-for="Email">Email address</label>
+    <input asp-for="Email" type="text" class="form-control"  placeholder="Enter Your Email" />
+    <span class="form-text  text-danger" asp-validation-for="Email"></span>
+  </div>
+
+  <div class="form-group p-1">
+    <label asp-for="Password"  >Password</label>
+    <input asp-for="Password" type="password" class="form-control"  placeholder="Enter Your Password" />
+    <span class="form-text  text-danger" asp-validation-for="Password"></span>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-4">Register</button>
+
+</form>
+</div>
