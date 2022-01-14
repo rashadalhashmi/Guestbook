@@ -1,5 +1,4 @@
 ﻿using Guestbook.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Guestbook.Data

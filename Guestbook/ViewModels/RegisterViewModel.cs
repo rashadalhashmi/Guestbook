@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Guestbook.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Guestbook.ViewModels
 {
@@ -12,5 +13,21 @@ namespace Guestbook.ViewModels
         public string Password { get; set; }
         [Required][EmailAddress]
         public string Email { get; set; }
+    }
+
+    // this is extension method convert from  RegisterViewModel to ApplicationUser 
+    public static class RegisterViewModelExtensions
+    {
+        public static ApplicationUser ToApplicationUserModel(this RegisterViewModel registerViewModel)
+        {
+            return new ApplicationUser
+            {
+                Email = registerViewModel.Email,
+                FirstName = registerViewModel.FirstName,
+                LastName = registerViewModel.LastName,
+                Password = registerViewModel.Password,
+
+            };
+           }
     }
 }

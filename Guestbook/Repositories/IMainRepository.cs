@@ -12,6 +12,8 @@ namespace Guestbook.Repositories
         Task<IEnumerable<T>> Update(IEnumerable<T> entity);
         Task<T> Delete(int id);
         Task<IEnumerable<T>> Delete(IEnumerable<T> entity);
-        Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
+        Task<IEnumerable<T>> FindMany(Expression<Func<T, bool>> expression);
+        Task<T>FindOne(Expression<Func<T, bool>> expression);
+
     }
 }

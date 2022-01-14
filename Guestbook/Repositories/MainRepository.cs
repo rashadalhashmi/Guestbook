@@ -61,11 +61,14 @@ namespace Guestbook.Repositories
             return entity;
         }
 
-        public async Task <IEnumerable<T>> Find(Expression<Func<T, bool>> expression)
+        public async Task <IEnumerable<T>> FindMany(Expression<Func<T, bool>> expression)
         {
             return Context.Set<T>().Where(expression);
         }
 
-      
+        public async Task<T> FindOne(Expression<Func<T, bool>> expression)
+        {
+            return Context.Set<T>().FirstOrDefault(expression);
+        }
     }
 }

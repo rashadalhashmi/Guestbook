@@ -1,16 +1,22 @@
-﻿@model string 
+﻿@model LoginViewModel 
 
 <div class="register row">
-<form class="mt-5 offset-4 col-4" action= "/Account/Login?ReturnUrl=@System.Net.WebUtility.UrlEncode(Model)" method="post">
-  <div class="form-group p-1 ">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="Email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<form class="mt-5 offset-4 col-4"  asp-action="Login" asp-controller="Account" method="post">
+
+    <div class="form-group p-1">
+    <label asp-for="Email">Email address</label>
+    <input asp-for="Email" type="text" class="form-control"  placeholder="Enter Your Email" />
+    <span class="form-text  text-danger" asp-validation-for="Email"></span>
   </div>
+
   <div class="form-group p-1">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="Password">
+    <label asp-for="Password"  >Password</label>
+    <input asp-for="Password" type="password" class="form-control"  placeholder="Enter Your Password" />
+    <span class="form-text  text-danger" asp-validation-for="Password"></span>
+    @if( ViewBag.IsPasswordOrEmailNotFound==true){<span class="form-text  text-danger" asp-validation-for="Password">Email or Password not Correct</span>}
   </div>
+
+
   <button type="submit" class="btn btn-primary mt-3 ">Login</button>
 </form>
 </div>

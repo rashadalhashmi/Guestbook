@@ -8,6 +8,7 @@ namespace Guestbook.Models
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.HasIndex(x => x.Email).IsUnique();
             builder.HasMany<Massege>(a=>a.Masseges).WithOne(m=>m.User).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany<Reply>(r => r.Replies).WithOne(m => m.User).OnDelete(DeleteBehavior.NoAction);
 
